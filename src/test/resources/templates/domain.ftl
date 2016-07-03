@@ -23,8 +23,7 @@ public class ${domainName} implements java.io.Serializable {
 	
 	<#list list as table>
 	/** ${table.columnComment} */
-	<#if table.columnKey = "PRI">@Id</#if>
-	@Column(name="${table.columnName}")
+	<#if table.columnKey = "PRI">@Id</#if>@Column(name="${table.columnName}")
 	private ${table.dataType} ${table.columnName};
 	
     </#list>
