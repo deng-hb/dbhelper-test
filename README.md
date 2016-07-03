@@ -6,5 +6,9 @@
 Test Demo
 
 
+Generate Domain
+生成实体
 
+
+下载运行
 
