@@ -10,6 +10,8 @@ import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 
 import com.denghb.dbhelper.domain.Paging;
 import com.denghb.dbhelper.domain.PagingResult;
+import com.denghb.dbhelper.domain.User;
+import com.denghb.dbhelper.domain.UserFilter;
 import com.denghb.dbhelper.utils.DbHelperUtils;
 
 @ContextConfiguration(locations = { "classpath:applicationContext.xml" })

@@ -1,4 +1,4 @@
-package com.denghb.dbhelper;
+package com.denghb.dbhelper.domain;
 
 import com.denghb.dbhelper.domain.Paging;
 
