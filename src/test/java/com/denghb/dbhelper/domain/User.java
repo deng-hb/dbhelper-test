@@ -1,12 +1,13 @@
 package com.denghb.dbhelper.domain;
 
 import com.denghb.dbhelper.annotation.Column;
+import com.denghb.dbhelper.annotation.Id;
 import com.denghb.dbhelper.annotation.Table;
 
 import java.util.Date;
 
 /**
- * 
+ * DDL
  * <pre>
  * CREATE TABLE `user` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -15,10 +16,10 @@ import java.util.Date;
   `email` varchar(100) DEFAULT NULL COMMENT '邮件',
   `mobile` varchar(20) DEFAULT NULL COMMENT '手机号',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=229422 DEFAULT CHARSET=utf8
+) ENGINE=InnoDB AUTO_INCREMENT=329422 DEFAULT CHARSET=utf8
  * <pre>
  * @author DbHelper
- * @generateTime Sun Jul 03 20:21:50 CST 2016
+ * @generateTime Sun Jul 03 20:43:32 CST 2016
  */
 @Table(name="user",database="test")
 public class User implements java.io.Serializable {
@@ -26,22 +27,27 @@ public class User implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	/**  */
+	@Id
 	@Column(name="id")
 	private Integer id;
 	
 	/** 年龄 */
+	
 	@Column(name="age")
 	private Integer age;
 	
 	/** 姓名 */
+	
 	@Column(name="name")
 	private String name;
 	
 	/** 邮件 */
+	
 	@Column(name="email")
 	private String email;
 	
 	/** 手机号 */
+	
 	@Column(name="mobile")
 	private String mobile;
 	

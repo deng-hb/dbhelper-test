@@ -1,6 +1,7 @@
 package ${packageName};
 
 import com.denghb.dbhelper.annotation.Column;
+import com.denghb.dbhelper.annotation.Id;
 import com.denghb.dbhelper.annotation.Table;
 
 <#if isDateType >
@@ -22,6 +23,7 @@ public class ${domainName} implements java.io.Serializable {
 	
 	<#list list as table>
 	/** ${table.columnComment} */
+	<#if table.columnKey = "PRI">@Id</#if>
 	@Column(name="${table.columnName}")
 	private ${table.dataType} ${table.columnName};
 	

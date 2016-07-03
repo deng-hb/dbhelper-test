@@ -1,6 +1,5 @@
 package com.denghb.dbhelper.generate;
 
-
 import java.io.Serializable;
 
 import com.denghb.dbhelper.utils.DbHelperUtils;
@@ -11,6 +10,8 @@ public class TableInfo implements Serializable {
 
 	private String columnName;
 	private String dataType;
+	private String columnKey;
+
 	private String columnComment;
 
 	// 大写对象名称
@@ -25,7 +26,7 @@ public class TableInfo implements Serializable {
 	}
 
 	public String getDataType() {
-		// TODO 
+		// TODO
 		return ColumnUtils.databaseTypeToJavaType(dataType);
 	}
 
@@ -49,9 +50,18 @@ public class TableInfo implements Serializable {
 		this.objectName = objectName;
 	}
 
+	public String getColumnKey() {
+		return columnKey;
+	}
+
+	public void setColumnKey(String columnKey) {
+		this.columnKey = columnKey;
+	}
+
 	@Override
 	public String toString() {
-		return "TableInfo [columnName=" + columnName + ", dataType=" + dataType + ", columnComment=" + columnComment + "]";
+		return "TableInfo [columnName=" + columnName + ", dataType=" + dataType + ", columnKey=" + columnKey
+				+ ", columnComment=" + columnComment + ", objectName=" + objectName + "]";
 	}
 
 }
