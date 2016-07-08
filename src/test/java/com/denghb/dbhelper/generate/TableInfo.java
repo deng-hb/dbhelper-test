@@ -14,8 +14,10 @@ public class TableInfo implements Serializable {
 
 	private String columnComment;
 
-	// 大写对象名称
+	// updated_by -> updatedBy
 	private String objectName;
+	// updated_by -> UpdatedBy
+	private String methodName;
 
 	public String getColumnName() {
 		return columnName;
@@ -43,7 +45,7 @@ public class TableInfo implements Serializable {
 	}
 
 	public String getObjectName() {
-		return DbHelperUtils.firstCharToUpperCase(this.columnName);
+		return ColumnUtils.removeAll_AndNextCharToUpperCase(this.columnName);
 	}
 
 	public void setObjectName(String objectName) {
@@ -58,10 +60,19 @@ public class TableInfo implements Serializable {
 		this.columnKey = columnKey;
 	}
 
+	public String getMethodName() {
+		return DbHelperUtils.firstCharToUpperCase(getObjectName());
+	}
+
+	public void setMethodName(String methodName) {
+		this.methodName = methodName;
+	}
+
 	@Override
 	public String toString() {
 		return "TableInfo [columnName=" + columnName + ", dataType=" + dataType + ", columnKey=" + columnKey
-				+ ", columnComment=" + columnComment + ", objectName=" + objectName + "]";
+				+ ", columnComment=" + columnComment + ", objectName=" + objectName + ", methodName=" + methodName
+				+ "]";
 	}
 
 }

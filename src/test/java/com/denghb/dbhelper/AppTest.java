@@ -1,6 +1,10 @@
 package com.denghb.dbhelper;
 
+import java.text.MessageFormat;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -78,7 +82,7 @@ public class AppTest extends AbstractJUnit4SpringContextTests {
 		// sql.append("select id,name,mobile from user");
 		// sql.append("select * from user");
 		sql.append(DbHelperUtils.getSelectSql(User.class));
-		
+
 		Paging paging = new UserFilter();
 		paging.setSort(true);
 		paging.setPage(10L);
@@ -95,6 +99,24 @@ public class AppTest extends AbstractJUnit4SpringContextTests {
 	public void deleteById() {
 		boolean res = db.deleteById(User.class, 1);
 		Assert.assertTrue(res);
+	}
+
+	@Test
+	public void updates() {
+
+		long[] accountIds = new long[] { 1, 2 };
+		StringBuffer sb = new StringBuffer();
+		for(int i = 0;i< accountIds.length;i++){
+			if(0 != i){
+				sb.append(",");
+			}
+			sb.append(accountIds[i]);
+			
+		}
+		String sql = MessageFormat.format(
+				"update admin.account_access set status = {0},updated_by = ? where account_id in ({1}) and status = {2}", 1,sb.toString(), 0);
+		int s = db.execute(sql, 0L);
+		System.out.println(s);
 	}
 
 }

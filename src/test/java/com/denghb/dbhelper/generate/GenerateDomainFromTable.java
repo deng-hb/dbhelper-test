@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
+import java.text.MessageFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -29,10 +30,19 @@ public class GenerateDomainFromTable {
 	public static void main(String[] args) {
 		ApplicationContext app = new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
 		DbHelper dbHelper = app.getBean(DbHelperImpl.class);
-
-		String databaseName = "test";
-		String tableName = "user";
-		String packageName = "com.denghb.dbhelper.domain";
+		
+		String databaseName = "admin";
+		String tableName = "account";
+//		String tableName = "account_access";
+//		String tableName = "account_password";
+//		String tableName = "sys_resource";
+//		String tableName = "sys_role";
+//		String tableName = "sys_role_resource";
+//		String tableName = "sys_user";
+//		String tableName = "sys_user_role";
+		
+		String packageName = "com.denghb.admin.domain";
+		String projectUrl = "../admin/src/main/java/com/denghb/admin/domain/";
 		
 		// 类名
 		String domainName = ColumnUtils.removeAll_AndNextCharToUpperCase(tableName);
@@ -43,7 +53,7 @@ public class GenerateDomainFromTable {
 		List<TableInfo> list = dbHelper.list(sql, TableInfo.class, tableName, databaseName);
 
 		// 查询DDL
-		TableDdl tableDdl = dbHelper.queryForObject("show create table " + tableName, TableDdl.class);
+		TableDdl tableDdl = dbHelper.queryForObject("show create table " + databaseName+"."+tableName, TableDdl.class);
 		System.out.println(tableDdl);
 		System.out.println(list.toString());
 
@@ -66,7 +76,7 @@ public class GenerateDomainFromTable {
 			root.put("packageName", packageName);
 			
 			// TODO 路径
-			File file = new File("src//test//java//com//denghb//dbhelper//domain//"+domainName + ".java");
+			File file = new File(projectUrl+domainName + ".java");
 			if (!file.exists()) {
 				// System.out.println("file exist");
 				file.createNewFile();
