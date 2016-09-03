@@ -9,10 +9,9 @@ import java.util.Date;
 </#if>
 
 /**
+ * ${tableComment}
  * DDL
- * <pre>
- * ${tableDdl}
- * <pre>
+ * <pre>${tableDdl}<pre>
  * @author DbHelper
  * @generateTime ${generateTime}
  */
@@ -40,6 +39,14 @@ public class ${domainName} implements java.io.Serializable {
 	</#list>
 	@Override
 	public String toString(){
-		return "${domainName} [<#list list as table>${table.objectName}=" + ${table.objectName} +", </#list>]";
+		StringBuffer stringBuffer = new StringBuffer("${domainName} [");
+		<#list list as table>
+		stringBuffer.append("${table.objectName}=");
+		stringBuffer.append(${table.objectName});
+		stringBuffer.append(",");
+		</#list>
+		stringBuffer.append("]");
+	
+		return stringBuffer.toString();
 	}
 }
