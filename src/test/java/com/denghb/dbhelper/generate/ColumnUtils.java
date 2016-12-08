@@ -49,16 +49,18 @@ public class ColumnUtils {
 	public static String databaseTypeToJavaType(String dataType) {
 		if (StringUtils.hasText(dataType)) {
 			dataType = dataType.toLowerCase().trim();
-			if ("varchar".equals(dataType) || "text".equals(dataType) || "string".equals(dataType)) {
+			if ("varchar".equals(dataType) || "text".equals(dataType) || "string".equals(dataType) || "char".equals(dataType) || "longtext".equals(dataType)) {
 				dataType = "String";
-			} else if ("int".equals(dataType) || "integer".equals(dataType)) {
+			} else if ("int".equals(dataType) || "integer".equals(dataType) || "smallint".equals(dataType)) {
 				dataType = "Integer";
 			} else if ("bigint".equals(dataType) || "long".equals(dataType)) {
 				dataType = "Long";
 			} else if ("timestamp".equals(dataType) || "datetime".equals(dataType) || "date".equals(dataType)) {
-				dataType = "Date";
+				dataType = "java.util.Date";
 			} else if ("tinyint".equals(dataType) || "boolean".equals(dataType)) {
 				dataType = "Boolean";
+			} else if("decimal".equals(dataType)){
+				dataType = "java.math.BigDecimal";
 			} else {
 				throw new RuntimeException("dataType not find :" + dataType);
 			}

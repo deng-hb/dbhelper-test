@@ -4,10 +4,6 @@ import com.denghb.dbhelper.annotation.Column;
 import com.denghb.dbhelper.annotation.Id;
 import com.denghb.dbhelper.annotation.Table;
 
-<#if isDateType >
-import java.util.Date;
-</#if>
-
 /**
  * ${tableComment}
  * DDL

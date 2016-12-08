@@ -7,6 +7,10 @@ public class DatabaseTableInfo {
 	private String tableComment;
 
 	public String getTableName() {
+
+		if(null != tableName){
+			tableName = tableName.replaceAll("\\*/", "");
+		}
 		return tableName;
 	}
 
@@ -15,6 +19,9 @@ public class DatabaseTableInfo {
 	}
 
 	public String getTableComment() {
+		if(null != tableComment){
+			tableComment = tableComment.replaceAll("\\*/", "");
+		}
 		return tableComment;
 	}
 

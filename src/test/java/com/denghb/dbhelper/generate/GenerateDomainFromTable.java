@@ -31,13 +31,13 @@ public class GenerateDomainFromTable {
 		DbHelper dbHelper = app.getBean(DbHelperImpl.class);
 
 		
-		String databaseName = "running";
-		String packageName = "com.denghb.running.domain";
+		String databaseName = "ppdai_richs";
+		String packageName = "com.paicaifu.api.domain";
 
 		List<DatabaseTableInfo> list = dbHelper.list("select table_name,table_comment from information_schema.tables where table_schema=?;", DatabaseTableInfo.class, databaseName);
 		
 		for(DatabaseTableInfo info:list){
-			cretae(dbHelper, databaseName, packageName, info,"/Users/denghb/IdeaProjects/running/src/main/java/com/denghb/running/domain/");
+			cretae(dbHelper, databaseName, packageName, info,"/Users/ppd/IdeaProjects/api-test/src/main/java/com/paicaifu/api/domain/");
 		}
 	}
 	
@@ -68,10 +68,10 @@ public class GenerateDomainFromTable {
 			root.put("list", list);
 			root.put("tableComment", info.getTableComment());
 			root.put("domainName", domainName);
+
 			root.put("tableName", info.getTableName());
 			
 			root.put("databaseName", databaseName);
-			root.put("isDateType", true);// 实现方式待优化
 			root.put("tableDdl", tableDdl.getCreateTable());
 			
 			root.put("generateTime", new Date().toString());

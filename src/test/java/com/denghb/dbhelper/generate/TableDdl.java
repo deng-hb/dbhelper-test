@@ -20,6 +20,9 @@ public class TableDdl {
 	}
 
 	public String getCreateTable() {
+		if(null != createTable){
+			createTable = createTable.replaceAll("\\*/", "");
+		}
 		return createTable;
 	}
 

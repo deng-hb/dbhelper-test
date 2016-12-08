@@ -45,7 +45,7 @@ public class TableInfo implements Serializable {
 	}
 
 	public String getObjectName() {
-		return ColumnUtils.removeAll_AndNextCharToUpperCase(this.columnName);
+		return ColumnUtils.removeAll_AndNextCharToUpperCase(this.columnName.toLowerCase());
 	}
 
 	public void setObjectName(String objectName) {
