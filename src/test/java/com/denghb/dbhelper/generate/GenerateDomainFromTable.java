@@ -31,13 +31,13 @@ public class GenerateDomainFromTable {
 		DbHelper dbHelper = app.getBean(DbHelperImpl.class);
 
 		
-		String databaseName = "ppdai_richs";
-		String packageName = "com.paicaifu.api.domain";
+		String databaseName = "running";
+		String packageName = "com.denghb.running.domain";
 
 		List<DatabaseTableInfo> list = dbHelper.list("select table_name,table_comment from information_schema.tables where table_schema=?;", DatabaseTableInfo.class, databaseName);
 		
 		for(DatabaseTableInfo info:list){
-			cretae(dbHelper, databaseName, packageName, info,"/Users/ppd/IdeaProjects/api-test/src/main/java/com/paicaifu/api/domain/");
+			cretae(dbHelper, databaseName, packageName, info,"/Users/denghb/IdeaProjects/running/src/main/java/com/denghb/running/domain/");
 		}
 	}
 	
