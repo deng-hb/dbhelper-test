@@ -7,7 +7,10 @@ import com.denghb.dbhelper.annotation.Table;
 /**
  * ${tableComment}
  * DDL
- * <pre>${tableDdl}<pre>
+ * 
+ <pre>
+${tableDdl}
+ <pre>
  * @author DbHelper
  * @generateTime ${generateTime}
  */
@@ -35,14 +38,13 @@ public class ${domainName} implements java.io.Serializable {
 	</#list>
 	@Override
 	public String toString(){
-		StringBuffer stringBuffer = new StringBuffer("${domainName} [");
+		StringBuffer str = new StringBuffer("${domainName} [");
 		<#list list as table>
-		stringBuffer.append("${table.objectName}=");
-		stringBuffer.append(${table.objectName});
-		stringBuffer.append(",");
+		str.append(",${table.objectName}=");
+		str.append(${table.objectName});
 		</#list>
-		stringBuffer.append("]");
+		str.append("]");
 	
-		return stringBuffer.toString();
+		return str.toString();
 	}
 }
