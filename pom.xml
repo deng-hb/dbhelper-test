@@ -20,13 +20,7 @@
 		<dependency>
 			<groupId>com.denghb</groupId>
 			<artifactId>dbhelper</artifactId>
-			<version>1.4</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.freemarker</groupId>
-			<artifactId>freemarker</artifactId>
-			<version>2.3.23</version>
+			<version>3.0.4</version>
 		</dependency>
 
 		<!-- Spring -->

@@ -1,6 +1,7 @@
 package com.denghb.dbhelper.domain;
 
-import com.denghb.dbhelper.domain.Paging;
+
+import com.denghb.dbhelper.paging.Paging;
 
 public class UserFilter extends Paging {
 
